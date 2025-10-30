@@ -3,7 +3,7 @@ from __future__ import annotations
 
 class Animal:
 
-    alive = []
+    alive: list[Animal] = []
 
     def __init__(self,
                  name: str,
@@ -18,7 +18,7 @@ class Animal:
     def take_damage(self, beast: Animal) -> None:
         beast.health -= 50
         if beast in self.alive and beast.health <= 0:
-            self.alive.remove(beast)
+            self.__class__.alive.remove(beast)
 
     def __repr__(self) -> str:
         return (f"{{Name: {self.name}, "

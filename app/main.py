@@ -17,7 +17,7 @@ class Animal:
 
     def take_damage(self, beast: Animal) -> None:
         beast.health -= 50
-        if beast in self.alive and beast.health <= 0:
+        if beast in self.__class__.alive and beast.health <= 0:
             self.__class__.alive.remove(beast)
 
     def __repr__(self) -> str:
